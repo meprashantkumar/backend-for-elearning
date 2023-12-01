@@ -19,10 +19,6 @@ app.use(
   })
 );
 
-app.use("/", (req, res) => {
-  res.status(200).send("Working Fine");
-});
-
 //importing routes
 import userRoutes from "./routes/userRoutes.js";
 import courseRoutes from "./routes/courseroutes.js";
