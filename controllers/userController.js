@@ -76,25 +76,13 @@ export const myProfile = catchAsyncError(async (req, res, next) => {
   });
 });
 
-export const myCourses = async (req, res, next) => {
-  try {
-    const user = await User.findById(req.user._id);
+export const myCourses = catchAsyncError(async (req, res, next) => {
+  const user = await User.findById(req.user._id).populate("subscriptions");
 
-    const id = await user.subscriptions;
-
-    const courses = await Course.find({
-      _id: id,
-    });
-
-    res.status(200).json({
-      courses,
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
-  }
-};
+  res.status(200).json({
+    user,
+  });
+});
 
 export const checkout = catchAsyncError(async (req, res) => {
   const user = await User.findById(req.user._id);
