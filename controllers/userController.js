@@ -3,7 +3,7 @@ import { User } from "../models/User.js";
 import { Course } from "../models/Course.js";
 import { instance } from "../server.js";
 import crypto from "crypto";
-import Payment from "../models/payment.js";
+import Payment from "../models/Payment.js";
 import sanitize from "mongo-sanitize";
 
 export const register = catchAsyncError(async (req, res, next) => {
