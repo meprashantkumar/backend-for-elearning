@@ -4,6 +4,7 @@ import {
   addLecture,
   createCourse,
   deleteCourse,
+  deleteCourseByAdmin,
   deleteLecture,
   getAllCourses,
   getAllCoursesAdmin,
@@ -31,6 +32,10 @@ router
 router
   .route("/course/delete/:id")
   .delete(isAuthenticated, authorizeTeacher, deleteCourse);
+
+router
+  .route("/course/delete/admin/:id")
+  .delete(isAuthenticated, deleteCourseByAdmin);
 
 router
   .route("/course/lecture")
