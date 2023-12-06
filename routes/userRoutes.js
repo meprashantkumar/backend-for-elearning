@@ -1,6 +1,7 @@
 import express from "express";
 import {
   checkout,
+  getAllUsers,
   login,
   myCourses,
   myProfile,
@@ -17,5 +18,6 @@ router.route("/me").get(isAuthenticated, myProfile);
 router.route("/mycourse").get(isAuthenticated, myCourses);
 router.route("/verification/:id").post(isAuthenticated, paymentVarification);
 router.route("/checkout").post(isAuthenticated, checkout);
+router.route("/users").get(isAuthenticated, getAllUsers);
 
 export default router;
